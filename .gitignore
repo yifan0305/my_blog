@@ -1,0 +1,13 @@
+# 忽略 Windows 可执行文件
+*.exe
+
+# 忽略系统和编辑器配置
+.DS_Store
+.vscode/
+.idea/
+
+# 忽略依赖包和构建产物（以后写博客必备）
+node_modules/
+dist/
+public/
+*.log
