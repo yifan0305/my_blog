@@ -218,7 +218,7 @@ def get_close_lfs(a):
     return b
 ```
 
-### $e$ 与 $\varphi(n)$ 不互质
+### e 与 ɸ(n) 不互质
 
 要求能够分解 $n$.  
 $n = p \cdot q$.  
@@ -228,7 +228,7 @@ $n = p \cdot q$.
 AMM 算法对于这类问题是比较通用的.  
 后面会写一篇文章专门讲这个算法.  
 
-### $e$ 与 $p - 1$ 或 $q - 1$ 互质
+### e 与 p - 1 或 q - 1 互质
 
 当 $e$ 与 $\varphi{(p)}$ 或 $\varphi{(q)}$ 互质, 而 $p$、$q$ 比 m 大, 可将 $\varphi{(n)}$ 转化为 $\varphi{(p)}$ 或 $\varphi{(q)}$ 进行计算.  
 
