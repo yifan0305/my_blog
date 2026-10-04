@@ -208,3 +208,34 @@ $$
 
 椭圆曲线上的 ElGamal 签名, 经过标准化后就是 ECDSA.  
 ECDSA 的公式和原始 ElGamal 签名略有不同, 但核心思想一致: 用随机数 $k$ 和私钥 $d$ 生成 $(r, s)$, 用公钥验证.  
+
+## 攻击
+
+### Pohlig-Hellman 攻击
+
+这个攻击专门针对**群阶光滑**的离散对数问题, 在椭圆曲线中就是: 如果椭圆曲线的阶 $N$ 可以被分解成很多个小素数幂的乘积, 那么 ECDLP 可以被快速破解.  
+我们称可以被分解为小素数乘积的正整数为光滑数. 即:  
+
+$$
+N = \prod_{i = 1}^{m}p_i^{t_i}
+$$
+
+我们设 $G$ 的阶为 $N$, 想求 $k \bmod{N}$, 根据中国剩余定理, 只需要求:  
+
+$$
+\begin{gathered}
+\left\{\begin{matrix}
+k \bmod{p_1^{t_1}}\\
+k \bmod{p_2^{t_2}}\\
+\cdots\\
+k \bmod{p_m^{t_m}}\\
+\end{matrix}
+\right.
+\end{gathered}
+$$
+
+最后将这些方程合并, 即可得到 $k$.  
+对于每个因子 $p_i^{t_i}$, 令 $N = p_i^{t_i} \cdot q, \gcd(p, q) = 1$.  
+定义 $G' = qG, Q' = qQ$, 那么 $G'$ 的阶为 $p_i^{t_i}$, 并且有 $Q' = qQ = qkG = k(qG) = kG'$, 所以在由 $G'$ 生成的子群里, 有 $Q' = kG'$, 子群的阶为 $p_i^{t_i}$, 这个子群的阶只有 $p_i^{t_i}$, 比原来的 $N$ 要小很多, 现在只要求 $k \equiv k_i \pmod{p_i^{t_i}}$, $k_i$ 是 $Q$ 相对于 $G$ 的离散对数, 对每个 $p_i^{t_i}$ 单独求解, 最后用 CRT 合并即可.  
+sagemath 中的 `discrete_log(Q, G, ord=N, operation='+')` 内部就是 Pohlig-Hellman.  
+> 对于一些曲线 $y^2 = x^3 + ax + b \pmod{p}$, 如果 $p \equiv 3 \pmod{4}$, 那么这条曲线就是超奇异的, 它的阶恰好是 $p + 1$.  
