@@ -1,8 +1,8 @@
 ---
 title: ECC
 date: 2026-10-03 22:15:06
-tags: [crypto, 学习笔记, 非对称加密]
-categories: [学习笔记, 非对称加密]
+tags: [crypto, 学习笔记, 非对称加密, 离散对数]
+categories: [学习笔记, 非对称加密, 离散对数]
 description: "ECC"
 mathjax: true
 ---
@@ -115,78 +115,16 @@ $$
 此时验证 $X.x \bmod{n}$ 是不是等于 $r$ 即可.  
 在此过程中, $k$ 绝对不可以泄露, 一旦 $k$ 泄露, 即可算出 $d = (s \cdot k - z) \cdot r^{-1} \bmod{n}$, 此时将 $s, k, z, r$ 代入可以得到私钥 $d$, 私钥泄露!  
 
-## ElGamal
-
-给定素数 $p$, 生成元 $g$, 公钥 $y = g^x  \bmod{p}$, 求私钥 $x$ 很难, ElGamal 的全部安全性, 都建立在 "求离散对数很难" 这个问题上.  
-
-### 原始 ElGamal (有限域版本)
-
-#### 密钥生成
-
-选取一个大质数 $p$, 以及模 $p$ 的生成元 $g$, 随机选取私钥 $x, 1 \le x \le p - 2$, 计算公钥 $y = g^x \bmod{p}$.  
-公钥: $(p, g, y)$, 私钥: $x$.  
-
-#### 加密
-
-把明文 $m$ 加密给接收方, 随机选择一个数 $k, 1 \le k \le p - 2$, 接收方的公钥为 $(p, g, y)$.  
-计算 $c_1 = g^k \bmod{p}, c_2 = m \cdot y^k \bmod{p}$.  
-密文就是 $(c_1, c_2)$.  
-
-#### 解密
-
-接收方用自己的私钥 $x$, 计算 $c_1^x \bmod{p}$.  
-
-$$
-\begin{gathered}
-c_1^x = (g^k)^x = g^{kx} = y^k\\
-m = c_2 \cdot (c_1^{x})^{-1} \bmod{p}\\
-\end{gathered}
-$$
-
-### 原始 ElGamal 签名 (有限域版本)
-
-#### 密钥生成
-
-和加密一样: 私钥 $x$, 公钥 $y = g^x \bmod{p}$
-
-#### 签名
-
-对消息 $m$ 进行签名, 计算消息哈希 $H(m)$, 随机选择 $k, 1 \le k \le p - 2$, 且 $\gcd(k, p - 1) = 1$.  
-计算:  
-
-$$
-\begin{gathered}
-r = g^k \bmod{p}\\
-s = (H(m) - x \cdot r) \cdot k^{-1} \bmod{p - 1}\\
-\end{gathered}
-$$
-
-签名就是 $(r, s)$.  
-
-#### 验证
-
-任何人拿到签名 $(r, s)$ 和公钥 $y$, 计算:  
-
-$$
-\begin{gathered}
-v_1 = g^{H(m)} \bmod{p}\\
-v_2 = y^r \cdot r^s \bmod{p}\\
-v_2 = g^{xr} \cdot g^{ks} = g^{sk + xr} = g^{H(m)} \pmod{p}\\
-\end{gathered}
-$$
-
-因此 $v_1 = v_2$ 时, 签名有效.  
-
-### 椭圆曲线 ElGamal (EC ElGamal)
+## 椭圆曲线 ElGamal (EC ElGamal)
 
 将上面的有限域乘法群换成椭圆曲线点群, 就得到了 EC ElGamal.  
 
-#### 密钥生成
+### 密钥生成
 
 曲线参数: $(p, a, b, G, n)$.  
 私钥 $d$, 公钥 $Q = dG$.  
 
-#### 加密
+### 加密
 
 先将消息 $m$ 编码成椭圆曲线上的一个点 $M$ (消息到点的映射), 这一步比较麻烦.  
 随机选择临时数 $k$, 计算:  
@@ -200,18 +138,13 @@ $$
 
 密文: $(c_1, c_2)$
 
-#### 解密
+### 解密
 
 接收方用私钥 $d$, 计算: $M = c_2 - c_1 \cdot d$, 得到 $M$ 解码回 $m$.  
 
-### EC ElGamal 签名
-
-椭圆曲线上的 ElGamal 签名, 经过标准化后就是 ECDSA.  
-ECDSA 的公式和原始 ElGamal 签名略有不同, 但核心思想一致: 用随机数 $k$ 和私钥 $d$ 生成 $(r, s)$, 用公钥验证.  
-
 ## 攻击
 
-### Pohlig-Hellman 攻击
+### ECDLP 中的 Pohlig-Hellman 攻击
 
 这个攻击专门针对**群阶光滑**的离散对数问题, 在椭圆曲线中就是: 如果椭圆曲线的阶 $N$ 可以被分解成很多个小素数幂的乘积, 那么 ECDLP 可以被快速破解.  
 我们称可以被分解为小素数乘积的正整数为光滑数. 即:  
@@ -238,4 +171,4 @@ $$
 对于每个因子 $p_i^{t_i}$, 令 $N = p_i^{t_i} \cdot q, \gcd(p, q) = 1$.  
 定义 $G' = qG, Q' = qQ$, 那么 $G'$ 的阶为 $p_i^{t_i}$, 并且有 $Q' = qQ = qkG = k(qG) = kG'$, 所以在由 $G'$ 生成的子群里, 有 $Q' = kG'$, 子群的阶为 $p_i^{t_i}$, 这个子群的阶只有 $p_i^{t_i}$, 比原来的 $N$ 要小很多, 现在只要求 $k \equiv k_i \pmod{p_i^{t_i}}$, $k_i$ 是 $Q$ 相对于 $G$ 的离散对数, 对每个 $p_i^{t_i}$ 单独求解, 最后用 CRT 合并即可.  
 sagemath 中的 `discrete_log(Q, G, ord=N, operation='+')` 内部就是 Pohlig-Hellman.  
-> 对于一些曲线 $y^2 = x^3 + ax + b \pmod{p}$, 如果 $p \equiv 3 \pmod{4}$, 那么这条曲线就是超奇异的, 它的阶恰好是 $p + 1$.  
+> 对于一些曲线 $y^2 = x^3 + ax \pmod{p}$, 如果 $p \equiv 3 \pmod{4}$, 那么这条曲线就是超奇异的, 它的阶恰好是 $p + 1$.  
