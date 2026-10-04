@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>友链 | yifan's blog</title><meta name="author" content="yifan"><meta name="copyright" content="yifan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="友链">
+<meta property="og:url" content="https://yifan0305.github.io/my_blog/link/index.html">
+<meta property="og:site_name" content="yifan&#39;s blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yifan0305.github.io/my_blog/img/avatar.jpg">
+<meta property="article:published_time" content="2026-10-04T08:13:06.000Z">
+<meta property="article:modified_time" content="2026-10-04T08:25:15.689Z">
+<meta property="article:author" content="yifan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yifan0305.github.io/my_blog/img/avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/my_blog/img/avatar.jpg"><link rel="canonical" href="https://yifan0305.github.io/my_blog/link/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/my_blog/css/index.css?v=5.7.1.260810"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        try {
+          const data = { value }
+
+          if (ttl != null) {
+            data.expiry = Date.now() + ttl * 86400000
+          }
+
+          localStorage.setItem(key, JSON.stringify(data))
+        } catch (e) {
+          console.error(e)
+        }
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/my_blog/',
+  algolia: undefined,
+  localSearch: {"path":"/my_blog/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '友链',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><style>mjx-assistive-mml { user-select: none !important; }</style><style>mjx-container:not([display="true"]) { vertical-align: middle; font-size: 0.95em; }</style><style>::selection { background: rgba(73, 177, 245, 0.3) !important; color: inherit !important; }</style><style>#footer { background-color: rgba(0, 0, 0, 0.4) !important; background-blend-mode: overlay; }</style><style>mjx-container { font-size: 1.15em !important; }</style><style>#article-container h1 { font-size: 1.8em !important; }</style><style>#article-container h2 { font-size: 1.6em !important; }</style><style>#article-container h3 { font-size: 1.4em !important; }</style><style>#article-container p, #article-container li { font-size: 17px !important; line-height: 1.8 !important; }</style><meta name="generator" content="Hexo 8.1.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/my_blog/img/avatar.jpg" onerror="this.onerror=null;this.src='/my_blog/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/my_blog/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/my_blog/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/my_blog/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/my_blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/my_blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/my_blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/my_blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/my_blog/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/my_blog/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-link" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/my_blog/"><span class="site-name">yifan's blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/my_blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/my_blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/my_blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/my_blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/my_blog/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/my_blog/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">友链</h1></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="page-title">友链</div><div class="container" id="article-container"><div class="flink"><h2 id="大学友情链接">大学友情链接</h2>
+<div class="flink-desc">那些强强的大手子</div> <div class="flink-list">
+  <div class="flink-list-item">
+    <a href="https://lamb-fish.github.io/" title="lamb" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://lamb-fish.github.io/img/avatar.jpg" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="lamb" />
+      </div>
+      <div class="flink-item-name">lamb</div>
+      <div class="flink-item-desc" title="密码大手子">密码大手子</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://zha0y3n.github.io/" title="zha0y3n" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://zha0y3n.github.io/images/avatar.jpg" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="zha0y3n" />
+      </div>
+      <div class="flink-item-name">zha0y3n</div>
+      <div class="flink-item-desc" title="密码大手子">密码大手子</div>
+    </a>
+  </div></div><h2 id="高中友情链接">高中友情链接</h2>
+<div class="flink-desc">那些已逝的时光</div> <div class="flink-list">
+  <div class="flink-list-item">
+    <a href="https://www.cnblogs.com/zwfymqz" title="attack204" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.luogu.com.cn/upload/usericon/36984.png" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="attack204" />
+      </div>
+      <div class="flink-item-name">attack204</div>
+      <div class="flink-item-desc" title="高中的老学长, 博客传统的发起者和引路人">高中的老学长, 博客传统的发起者和引路人</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.cnblogs.com/L1RRL" title="L1RRL" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.luogu.com.cn/upload/usericon/529262.png" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="L1RRL" />
+      </div>
+      <div class="flink-item-name">L1RRL</div>
+      <div class="flink-item-desc" title="高中战友, 大连理工985学子(膜拜)">高中战友, 大连理工985学子(膜拜)</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.cnblogs.com/-Lxz-" title="Lxz-云遮月" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.luogu.com.cn/upload/usericon/658334.png" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="Lxz-云遮月" />
+      </div>
+      <div class="flink-item-name">Lxz-云遮月</div>
+      <div class="flink-item-desc" title="高中战友, 生物大佬, 目前学医(祝好🙏)">高中战友, 生物大佬, 目前学医(祝好🙏)</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.cnblogs.com/dhrwhy" title="dhrwhy" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.luogu.com.cn/upload/usericon/541145.png" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="dhrwhy" />
+      </div>
+      <div class="flink-item-name">dhrwhy</div>
+      <div class="flink-item-desc" title="高中战友, 生物大佬, 目前学生物科学">高中战友, 生物大佬, 目前学生物科学</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://ciaxin.github.io/" title="ciaxin" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.luogu.com.cn/upload/usericon/699650.png" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="ciaxin" />
+      </div>
+      <div class="flink-item-name">ciaxin</div>
+      <div class="flink-item-desc" title="高中战友, 数学大佬, 还在坚持算法竞赛的大手子">高中战友, 数学大佬, 还在坚持算法竞赛的大手子</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.cnblogs.com/G7526122" title="Komorebi_03" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.luogu.com.cn/upload/usericon/748679.png" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="Komorebi_03" />
+      </div>
+      <div class="flink-item-name">Komorebi_03</div>
+      <div class="flink-item-desc" title="高中战友, 人 win">高中战友, 人 win</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.cnblogs.com/Multitree" title="Aisaka_Taiga" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.luogu.com.cn/upload/usericon/526519.png" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="Aisaka_Taiga" />
+      </div>
+      <div class="flink-item-name">Aisaka_Taiga</div>
+      <div class="flink-item-desc" title="二区战友, 目前学医(祝好🙏)">二区战友, 目前学医(祝好🙏)</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.luogu.com.cn/blog/bloodstalk/" title="bloodstalk" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.luogu.com.cn/upload/usericon/231543.png" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="bloodstalk" />
+      </div>
+      <div class="flink-item-name">bloodstalk</div>
+      <div class="flink-item-desc" title="二区战友, whk 大手子, 算法大手子">二区战友, whk 大手子, 算法大手子</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.cnblogs.com/bzzltl" title="白昼之" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.luogu.com.cn/upload/usericon/699852.png" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="白昼之" />
+      </div>
+      <div class="flink-item-name">白昼之</div>
+      <div class="flink-item-desc" title="三区战友, 郑州大学211学子, 还在坚持算法竞赛的大手子">三区战友, 郑州大学211学子, 还在坚持算法竞赛的大手子</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.cnblogs.com/XYini" title="XYini" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.luogu.com.cn/upload/usericon/237391.png" onerror='this.onerror=null;this.src="/my_blog/img/friend_404.gif"' alt="XYini" />
+      </div>
+      <div class="flink-item-name">XYini</div>
+      <div class="flink-item-desc" title="三区战友, 65级机房大姐大, 还在坚持算法竞赛的大手子">三区战友, 65级机房大姐大, 还在坚持算法竞赛的大手子</div>
+    </a>
+  </div></div></div></div></div></main><footer id="footer" style="background-image: url(/my_blog/img/star.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By yifan</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.1.260810</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/my_blog/js/utils.js?v=5.7.1.260810"></script><script src="/my_blog/js/main.js?v=5.7.1.260810"></script><div class="js-pjax"><script>(() => {
+  const changeScriptToMath = article => {
+    article.querySelectorAll('script[type^="math/tex"]').forEach(el => {
+      const display = /mode=display/.test(el.type)
+      const node = document.createElement(display ? 'div' : 'span')
+      node.textContent = display
+        ? `$$${el.textContent}$$`
+        : `$${el.textContent}$`
+      el.parentNode.replaceChild(node, el)
+    })
+  }
+
+  const loadMathjax = () => {
+    const article = document.getElementById('article-container')
+    if (!article || article.querySelector('.hbe-container')) return
+    changeScriptToMath(article)
+
+    if (!window.MathJax) {
+      window.MathJax = {
+        loader: {
+          load: [
+            // Four font extension packages (optional)
+            //- '[tex]/bbm',
+            //- '[tex]/bboldx',
+            //- '[tex]/dsfont',
+            '[tex]/mhchem',
+            'ui/lazy'
+          ],
+          paths: {
+            'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+
+            //- // Four font extension packages (optional)
+            //- 'mathjax-bbm-extension': '[mathjax]/../@mathjax/mathjax-bbm-font-extension',
+            //- 'mathjax-bboldx-extension': '[mathjax]/../@mathjax/mathjax-bboldx-font-extension',
+            //- 'mathjax-dsfont-extension': '[mathjax]/../@mathjax/mathjax-dsfont-font-extension',
+            'mathjax-mhchem-extension': '[mathjax]/../@mathjax/mathjax-mhchem-font-extension'
+          }
+        },
+        output: {
+          font: 'mathjax-newcm',
+        },
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+          packages: {
+            '[+]': [
+              'mhchem'
+            ]
+          }
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          lazyMargin: '200px',
+          enableMenu: true,
+          menuOptions: {
+            settings: {
+              enrich: false  // Turn off Braille and voice narration text automatic generation
+            }
+          },
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.typesetClear()
+      MathJax.typesetPromise([ article ])
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  if (window.pjax) loadMathjax()
+  else if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', loadMathjax)
+  else loadMathjax()
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/my_blog/js/search/local-search.js?v=5.7.1.260810"></script></div></div></body></html>
