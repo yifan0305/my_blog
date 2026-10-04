@@ -1,0 +1,54 @@
+- class_name: 大学友情链接
+  class_desc: 那些强强的大手子
+  link_list:
+    - name: lamb
+      link: https://lamb-fish.github.io/
+      avatar: https://lamb-fish.github.io/img/avatar.jpg
+      descr: 密码大手子
+    - name: zha0y3n
+      link: https://zha0y3n.github.io/
+      avatar: https://zha0y3n.github.io/images/avatar.jpg
+      descr: 密码大手子
+- class_name: 高中友情链接
+  class_desc: 那些已逝的时光
+  link_list:
+    - name: attack204
+      link: https://www.cnblogs.com/zwfymqz
+      avatar: https://cdn.luogu.com.cn/upload/usericon/36984.png
+      descr: 高中的老学长, 博客传统的发起者和引路人
+    - name: L1RRL
+      link: https://www.cnblogs.com/L1RRL
+      avatar: https://cdn.luogu.com.cn/upload/usericon/529262.png
+      descr: 高中战友, 大连理工985学子(膜拜)
+    - name: Lxz-云遮月
+      link: https://www.cnblogs.com/-Lxz-
+      avatar: https://cdn.luogu.com.cn/upload/usericon/658334.png
+      descr: 高中战友, 生物大佬, 目前学医(祝好🙏)
+    - name: dhrwhy
+      link: https://www.cnblogs.com/dhrwhy
+      avatar: https://cdn.luogu.com.cn/upload/usericon/541145.png
+      descr: 高中战友, 生物大佬, 目前学生物科学
+    - name: ciaxin
+      link: https://ciaxin.github.io/
+      avatar: https://cdn.luogu.com.cn/upload/usericon/699650.png
+      descr: 高中战友, 数学大佬, 还在坚持算法竞赛的大手子
+    - name: Komorebi_03
+      link: https://www.cnblogs.com/G7526122
+      avatar: https://cdn.luogu.com.cn/upload/usericon/748679.png
+      descr: 高中战友, 人 win
+    - name: Aisaka_Taiga
+      link: https://www.cnblogs.com/Multitree
+      avatar: https://cdn.luogu.com.cn/upload/usericon/526519.png
+      descr: 二区战友, 目前学医(祝好🙏)
+    - name: bloodstalk
+      link: https://www.luogu.com.cn/blog/bloodstalk/
+      avatar: https://cdn.luogu.com.cn/upload/usericon/231543.png
+      descr: 二区战友, whk 大手子, 算法大手子
+    - name: 白昼之
+      link: https://www.cnblogs.com/bzzltl
+      avatar: https://cdn.luogu.com.cn/upload/usericon/699852.png
+      descr: 三区战友, 郑州大学211学子, 还在坚持算法竞赛的大手子
+    - name: XYini
+      link: https://www.cnblogs.com/XYini
+      avatar: https://cdn.luogu.com.cn/upload/usericon/237391.png
+      descr: 三区战友, 65级机房大姐大, 还在坚持算法竞赛的大手子
