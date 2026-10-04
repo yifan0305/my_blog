@@ -61,10 +61,10 @@ social:
 # Image Settings
 # --------------------------------------
 
-favicon: /img/avatar.jpg
+favicon: /img/new-avatar.jpg
 
 avatar:
-  img: /img/avatar.jpg
+  img: /img/new-avatar.jpg
   effect: false
 
 # Disable all banner images
@@ -293,7 +293,7 @@ aside:
     category: true
   card_author:
     enable: true
-    description: 不要让曾经的自己失望!
+    description: Keep going.
     button:
       enable: true
       icon: fab fa-github
